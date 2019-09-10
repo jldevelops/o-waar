@@ -7,6 +7,7 @@
 		$ownerAddr = var[$addr]['owner'];
 		if($ownerAddr != trigger.initial_address) bounce('Bad guy detected, you can s*** m* d*** piece of s***');
 		if(var[$name]) bounce('Name already registered');
+		if(var['r'||$addr]) bounce('AA already registered');
 	}`,
 	messages: {
 		cases: [
@@ -33,7 +34,8 @@
 						state: `{
 							var[$name] = $addr;
 							var[$ownerAddr] = $addr;
-							response['message'] = $name || ' is now a shortcut to ' || $addr || '. Check "usage" response for usage instructions.';
+							var['r'||$addr] = true;
+							response['message'] = $name || ' is now a shortcut to ' || $addr || '. Check "usage" response for instructions.';
 							response['usage'] = '1. Set '||this_address||' as username attestor in a wallet.    2. Now you can send funds to @' || $name ||' in that wallet.   3. Enjoy!';
 						}`
 					}

@@ -1,0 +1,44 @@
+{
+	init: `{
+		$addr = trigger.address;
+		if(!var[$addr]['owner']) bounce("Owner not set");
+		if(!var[$addr]['name'])	bounce("Name not set");
+		$name = var[$addr]['name'];
+		$ownerAddr = var[$addr]['owner'];
+		if($ownerAddr != trigger.initial_address) bounce('Bad guy detected, you can s*** m* d*** piece of s***');
+		if(var[$name]) bounce('Name already registered');
+	}`,
+	messages: {
+		cases: [
+			{
+				messages: [
+					{
+						app: 'attestation',
+						payload: {
+							address: `{$addr}`,
+							profile:{username: `{$name}`}
+						}
+					},
+					{
+						app: 'payment',
+						payload: {
+							asset: 'base',
+							outputs: [
+								{address:`{trigger.initial_address}`}
+							]
+						}
+					},
+					{
+						app: 'state',
+						state: `{
+							var[$name] = $addr;
+							var[$ownerAddr] = $addr;
+							response['message'] = $name || ' is now a shortcut to ' || $addr || '. Check "usage" response for usage instructions.';
+							response['usage'] = '1. Set '||this_address||' as username attestor in a wallet.    2. Now you can send funds to @' || $name ||' in that wallet.   3. Enjoy!';
+						}`
+					}
+				]
+			}
+		]
+	}
+}

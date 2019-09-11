@@ -8,6 +8,8 @@ To register your AA:
 - AA cannot be registered twice
 - Once set, it cannot be changed
 
+Registration costs 1000 bytes.
+
 To use registry:
 - Change username attestor address to `OMSA2VVYORSVCZV3KW3AETJFUU3C5JC4`
 - Send to @name

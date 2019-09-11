@@ -13,3 +13,5 @@ Registration costs 1000 bytes.
 To use registry:
 - Change username attestor address to `C67F2UX4VNZZ2RJMPBADG7PRFPZZOT4E`
 - Send to @name
+
+![Registred AA screencap](https://i.imgur.com/kDJhXYl.png)

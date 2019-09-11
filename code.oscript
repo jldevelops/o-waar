@@ -25,7 +25,7 @@
 						payload: {
 							asset: 'base',
 							outputs: [
-								{address:`{trigger.initial_address}`}
+								{address:`{trigger.initial_address}`, amount: `{trigger.output[[asset=base]] - 1000}`}
 							]
 						}
 					},

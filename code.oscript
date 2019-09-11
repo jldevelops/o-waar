@@ -35,7 +35,7 @@
 							var[$name] = $addr;
 							var[$ownerAddr] = $addr;
 							var['r'||$addr] = true;
-							response['message'] = $name || ' is now a shortcut to ' || $addr || '. Check "usage" response for instructions.';
+							response['message'] = $name || ' is now a shortcut to ' || $addr ||'. Before using, please wait until attestation unit stabilizes.';
 							response['usage'] = '1. Set '||this_address||' as username attestor in a wallet.    2. Now you can send funds to @' || $name ||' in that wallet.   3. Enjoy!';
 						}`
 					}
